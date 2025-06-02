@@ -121,9 +121,17 @@ export default function Portfolio() {
                   <Button
                     size="lg"
                     className="bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-teal-500/25"
+                    asChild
                   >
-                    <Download className="mr-2 h-4 w-4" />
-                    Download CV
+                    <a 
+                      href="/Mohamed-Ehab-CV.pdf" 
+                      download="Mohamed_Ehab_CV.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Download className="mr-2 h-4 w-4" />
+                      Download CV
+                    </a>
                   </Button>
                   <Button
                     size="lg"
