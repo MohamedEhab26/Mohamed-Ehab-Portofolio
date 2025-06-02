@@ -226,6 +226,12 @@ export default function Portfolio() {
                       </h4>
                       <p className="text-slate-300">University of Northampton</p>
                     </div>
+                    <div className="group">
+                      <h4 className="font-semibold text-white group-hover:text-teal-400 transition-colors">
+                        Flutter Diploma (6 Months)
+                      </h4>
+                      <p className="text-slate-300">Route Academy</p>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
