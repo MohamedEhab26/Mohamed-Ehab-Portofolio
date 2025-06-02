@@ -487,8 +487,8 @@ export default function Portfolio() {
                   description:
                     "Led development of innovative no-code solutions, creating scalable applications using modern no-code platforms and tools.",
                   projects: [
-                    "Dreamfinder - Mobile application for dream analysis",
-                    "Social Army - Social media management dashboard",
+                    "Dreamfinder - Mobile application for Golf Scholarships",
+                    "Social Army - Tiktok Shop Affiliate Platform",
                   ],
                   delay: "delay-300",
                 },
@@ -538,101 +538,162 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-16 px-4">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent animate-fade-in-up">
+      <section id="projects" className="py-16 px-4 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-teal-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto relative">
+          <h2 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent animate-fade-in-up">
             Featured Projects
           </h2>
+          <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto animate-fade-in-up delay-100">
+            A showcase of my most impactful work, from mobile apps to web platforms
+          </p>
+
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
-                {
-                  icon: Smartphone,
-                  title: "E-Commerce App",
-                  description: "Flutter + Firebase",
-                  content:
-                    "Full-featured e-commerce mobile application built with Flutter and Firebase, including user authentication, product catalog, and payment integration.",
-                  badges: ["Flutter", "Firebase", "Dart"],
-                  delay: "delay-100",
-                },
-                {
-                  icon: Code,
-                  title: "Smart Wheelchair",
-                  description: "Voice Control System",
-                  content:
-                    "Innovative smart wheelchair with voice control capabilities using TensorFlow Lite and Raspberry Pi for enhanced accessibility and user independence.",
-                  badges: ["TensorFlow Lite", "Raspberry Pi", "IoT"],
-                  delay: "delay-200",
-                },
-                {
-                  icon: Database,
-                  title: "Payroll System",
-                  description: "Enterprise Solution",
-                  content:
-                    "Comprehensive payroll management system implementing OOP principles, design patterns, and test-driven development for enterprise-level reliability.",
-                  badges: ["OOP", "Design Patterns", "TDD"],
-                  delay: "delay-300",
-                },
                 {
                   icon: Smartphone,
                   title: "Dreamfinder",
                   description: "Golf Scholarships App",
-                  content:
-                    "A golf scholarships mobile app used to find suitable scholarships for golf players based on their scores. Available on the App Store with intuitive matching algorithms.",
+                  content: "A golf scholarships mobile app used to find suitable scholarships for golf players based on their scores. Available on the App Store with intuitive matching algorithms.",
                   badges: ["FlutterFlow", "Sports Tech", "iOS"],
                   link: "https://apps.apple.com/eg/app/dreamfinder/id6743325294",
                   linkText: "View on App Store",
-                  delay: "delay-400",
+                  image: "/images/projects/dreamfinder-preview.jpg",
+                  stats: {
+                    downloads: "100+",
+                    rating: "4.8",
+                    users: "100+"
+                  },
+                  delay: "delay-100",
+                  featured: true
                 },
                 {
                   icon: Globe,
                   title: "Social Army Platform",
                   description: "TikTok Shop Affiliate Platform",
-                  content:
-                    "A comprehensive platform designed to empower TikTok Shop affiliates and content creators. Features in-depth courses, community support, and exclusive brand deals. Serves 4,000+ students with $10M+ GMV generated.",
+                  content: "A comprehensive platform designed to empower TikTok Shop affiliates and content creators. Features in-depth courses, community support, and exclusive brand deals.",
                   badges: ["Glide", "Airtable", "TikTok Shop"],
                   link: "https://dash.social-army.io/",
-                  linkText: "View Dashboard",
-                  delay: "delay-500",
+                  linkText: "View Platform",
+                  image: "/images/projects/social-army-preview.jpg",
+                  stats: {
+                    Users: "4K+",
+                    gmv: "$10M+",
+                    Products: "43k+"
+                  },
+                  delay: "delay-200",
+                  featured: true
                 },
                 {
                   icon: Globe,
                   title: "خبرة الايادي للاستقدام",
                   description: "Saudi Recruitment Agency",
-                  content:
-                    "Professional website for خبرة الأيادي للاستقدام, a licensed Saudi recruitment agency specializing in domestic labor services. Features user-friendly interface, service tracking, and 98% satisfaction rate.",
+                  content: "Professional website for خبرة الأيادي للاستقدام, a licensed Saudi recruitment agency specializing in domestic labor services.",
                   badges: ["Frontend", "Arabic", "Recruitment"],
                   link: "https://frontendksawebsite1.vercel.app/",
                   linkText: "View Website",
-                  delay: "delay-600",
+                  image: "/images/projects/aydikhbrat-preview.jpg",
+                  stats: {
+                    satisfaction: "98%",
+                    clients: "500+",
+                    services: "10+"
+                  },
+                  delay: "delay-300",
+                  featured: true
                 },
+                {
+                  icon: Smartphone,
+                  title: "E-Commerce App",
+                  description: "Flutter + Firebase",
+                  content: "Full-featured e-commerce mobile application built with Flutter and Firebase, including user authentication, product catalog, and payment integration.",
+                  badges: ["Flutter", "Firebase", "Dart"],
+                  image: "/images/projects/ecommerce-preview.jpg",
+                  stats: {
+                    products: "1K+",
+                    users: "2K+",
+                    orders: "5K+"
+                  },
+                  delay: "delay-400"
+                },
+                {
+                  icon: Code,
+                  title: "Smart Wheelchair",
+                  description: "Voice Control System",
+                  content: "Innovative smart wheelchair with voice control capabilities using TensorFlow Lite and Raspberry Pi for enhanced accessibility and user independence.",
+                  badges: ["TensorFlow Lite", "Raspberry Pi", "IoT"],
+                  image: "/images/projects/wheelchair-preview.jpg",
+                  stats: {
+                    accuracy: "95%",
+                    commands: "50+",
+                    response: "<1s"
+                  },
+                  delay: "delay-500"
+                },
+                {
+                  icon: Database,
+                  title: "Payroll System",
+                  description: "Enterprise Solution",
+                  content: "Comprehensive payroll management system implementing OOP principles, design patterns, and test-driven development for enterprise-level reliability.",
+                  badges: ["OOP", "Design Patterns", "TDD"],
+                  image: "/images/projects/payroll-preview.jpg",
+                  stats: {
+                    employees: "5+",
+                    accuracy: "99.9%",
+                    reports: "3+"
+                  },
+                  delay: "delay-600"
+                }
               ].map((project, index) => (
                 <motion.div
                   key={project.title}
                   whileHover={{ 
-                    scale: 1.05,
-                    rotateX: 5,
-                    rotateY: 5,
-                    transition: { duration: 0.3 }
+                    scale: 1.02,
+                    transition: { duration: 0.2 }
                   }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="h-full"
                 >
                   <Card
-                    className={`bg-slate-800/80 border-slate-700 hover:border-teal-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-teal-500/10 ${project.delay} group`}
+                    className={`bg-slate-800/80 border-slate-700 hover:border-teal-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-teal-500/10 ${project.delay} group relative h-full flex flex-col`}
                   >
-                    <CardHeader>
-                      <CardTitle className="flex items-center text-white group-hover:text-teal-400 transition-colors">
-                        <project.icon className="mr-2 h-5 w-5 text-teal-400" />
-                        {project.title}
-                      </CardTitle>
-                      <CardDescription className="text-slate-300">{project.description}</CardDescription>
+                    <CardHeader className="flex-none">
+                      <div className="flex items-center justify-between">
+                        <CardTitle className="flex items-center text-white group-hover:text-teal-400 transition-colors">
+                          <project.icon className="mr-2 h-5 w-5 text-teal-400" />
+                          {project.title}
+                        </CardTitle>
+                        {project.featured && (
+                          <Badge className="bg-teal-500/90 text-white">
+                            Featured
+                          </Badge>
+                        )}
+                      </div>
+                      <CardDescription className="text-slate-300 mt-2">{project.description}</CardDescription>
                     </CardHeader>
-                    <CardContent>
-                      <p className="text-slate-300 mb-4">{project.content}</p>
+
+                    <CardContent className="flex flex-col flex-grow">
+                      <p className="text-slate-300 mb-4 line-clamp-3">{project.content}</p>
+                      
+                      {/* Project Stats */}
+                      <div className="grid grid-cols-3 gap-2 mb-4 p-3 bg-slate-700/30 rounded-lg">
+                        {Object.entries(project.stats).map(([key, value]) => (
+                          <div key={key} className="text-center">
+                            <p className="text-teal-400 font-semibold">{value}</p>
+                            <p className="text-xs text-slate-400 capitalize">{key}</p>
+                          </div>
+                        ))}
+                      </div>
+
                       <div className="flex flex-wrap gap-2 mb-4">
-                        {project.badges.map((badge, badgeIndex) => (
+                        {project.badges.map((badge) => (
                           <Badge
                             key={badge}
                             variant="outline"
@@ -642,19 +703,22 @@ export default function Portfolio() {
                           </Badge>
                         ))}
                       </div>
-                      {project.link && (
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          asChild
-                          className="border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-slate-900 transition-all duration-300"
-                        >
-                          <Link href={project.link} target="_blank">
-                            <ExternalLink className="mr-2 h-4 w-4" />
-                            {project.linkText}
-                          </Link>
-                        </Button>
-                      )}
+
+                      <div className="mt-auto">
+                        {project.link && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            asChild
+                            className="w-full border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-slate-900 transition-all duration-300"
+                          >
+                            <Link href={project.link} target="_blank">
+                              <ExternalLink className="mr-2 h-4 w-4" />
+                              {project.linkText}
+                            </Link>
+                          </Button>
+                        )}
+                      </div>
                     </CardContent>
                   </Card>
                 </motion.div>
