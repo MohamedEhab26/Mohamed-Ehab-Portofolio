@@ -23,7 +23,7 @@ import {
 import Link from "next/link"
 import Image from "next/image"
 import { useEffect, useState } from "react"
-import { SiFlutter, SiFirebase, SiJavascript, SiReact, SiNextdotjs, SiTailwindcss, SiDart, SiHtml5, SiCss3, SiGit, SiJirasoftware, SiPostman, SiAirtable, SiGlide, SiZapier } from "react-icons/si"
+import { SiFlutter, SiFirebase, SiJavascript, SiReact, SiNextdotjs, SiTailwindcss, SiDart, SiHtml5, SiCss3, SiGit, SiJirasoftware, SiPostman, SiAirtable, SiNodemon, SiZapier } from "react-icons/si"
 import { motion } from "framer-motion"
 import { Scene } from "@/components/3d/Scene"
 
@@ -382,7 +382,7 @@ export default function Portfolio() {
                     { name: "FlutterFlow", icon: SiFlutter },
                     { name: "Firebase", icon: SiFirebase },
                     { name: "Zapier", icon: SiZapier },
-                    { name: "Glide", icon: SiGlide },
+                    { name: "Glide", icon: SiNodemon },
                     { name: "Airtable", icon: SiAirtable },
                     { name: "Git", icon: SiGit },
                     { name: "Postman", icon: SiPostman },
