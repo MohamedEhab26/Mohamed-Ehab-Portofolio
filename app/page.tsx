@@ -630,7 +630,7 @@ export default function Portfolio() {
                   image: "/images/projects/wheelchair-preview.jpg",
                   stats: {
                     accuracy: "95%",
-                    commands: "50+",
+                    commands: "10+",
                     response: "<1s"
                   },
                   delay: "delay-500"
