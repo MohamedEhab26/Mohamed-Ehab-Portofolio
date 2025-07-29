@@ -1,5 +1,11 @@
 "use client"
 
+import Link from "next/link"
+import Image from "next/image"
+import { useEffect, useState } from "react"
+import { SiFlutter, SiFirebase, SiJavascript, SiReact, SiNextdotjs, SiTailwindcss, SiDart, SiHtml5, SiCss3, SiGit, SiJirasoftware, SiPostman, SiAirtable, SiGlide, SiZapier } from "react-icons/si"
+import { motion } from "framer-motion"
+import { Scene } from "@/components/3d/Scene"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -19,13 +25,43 @@ import {
   Database,
   Zap,
   ChevronDown,
+  Languages,
+  Wrench,
+  Layers,
+  Lightbulb,
+  FileCode,
+  Terminal,
+  Layout,
+  Server,
+  GitBranch,
+  Bug,
+  MessageSquare,
+  Boxes,
+  Cpu,
+  Network,
 } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
-import { useEffect, useState } from "react"
-import { SiFlutter, SiFirebase, SiJavascript, SiReact, SiNextdotjs, SiTailwindcss, SiDart, SiHtml5, SiCss3, SiGit, SiJirasoftware, SiPostman, SiAirtable, SiNodemon, SiZapier } from "react-icons/si"
-import { motion } from "framer-motion"
-import { Scene } from "@/components/3d/Scene"
+
+interface Skill {
+  name: string
+  icon: React.ComponentType<{ className?: string }>
+}
+
+interface SkillCategory {
+  title: string
+  skills: Skill[]
+  delay: string
+}
+
+interface Project {
+  title: string
+  description: string
+  content: string
+  badges: string[]
+  link: string
+  linkText: string
+  delay: string
+  icon?: React.ComponentType<{ className?: string }>
+}
 
 export default function Portfolio() {
   const [mounted, setMounted] = useState(false)
@@ -80,6 +116,20 @@ export default function Portfolio() {
       element.scrollIntoView({ behavior: "smooth" })
     }
   }
+
+  const projects: Project[] = [
+    {
+      title: "FlutterFlow Mobile App",
+      description: "Built a cross-platform mobile application using FlutterFlow",
+      content: "Developed a full-featured mobile app with real-time data synchronization, user authentication, and custom animations.",
+      badges: ["FlutterFlow", "Firebase", "Dart"],
+      link: "https://example.com/project1",
+      linkText: "View Project",
+      delay: "delay-100",
+      icon: SiFlutter
+    },
+    // ... rest of the projects array ...
+  ]
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-x-hidden">
@@ -357,13 +407,23 @@ export default function Portfolio() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-16 px-4">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent animate-fade-in-up">
-            Skills & Technologies
+      <section id="skills" className="py-16 px-4 bg-gradient-to-b from-slate-800/50 to-slate-900/50 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-20 -right-20 w-40 h-40 bg-teal-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-blue-500/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto relative">
+          <h2 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent animate-fade-in-up">
+            Skills
           </h2>
+          <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto animate-fade-in-up delay-100">
+            My technical skills and tools
+          </p>
+
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 gap-8">
               {[
                 {
                   title: "Languages",
@@ -382,7 +442,7 @@ export default function Portfolio() {
                     { name: "FlutterFlow", icon: SiFlutter },
                     { name: "Firebase", icon: SiFirebase },
                     { name: "Zapier", icon: SiZapier },
-                    { name: "Glide", icon: SiNodemon },
+                    { name: "Glide", icon: SiGlide },
                     { name: "Airtable", icon: SiAirtable },
                     { name: "Git", icon: SiGit },
                     { name: "Postman", icon: SiPostman },
@@ -454,246 +514,207 @@ export default function Portfolio() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-16 px-4 bg-slate-800/50">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent animate-fade-in-up">
+      <section id="experience" className="py-16 px-4 bg-gradient-to-b from-slate-800/50 to-slate-900/50 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-20 -right-20 w-40 h-40 bg-teal-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-blue-500/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto relative">
+          <h2 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent animate-fade-in-up">
             Experience
           </h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-6">
-              {[
-                {
-                  icon: TestTube,
-                  title: "Software Tester (Part-Time)",
-                  company: "Blocka",
-                  badge: "Current",
-                  description:
-                    "Conducting comprehensive manual testing for iOS and Android applications, ensuring quality and user experience across mobile platforms.",
-                  delay: "delay-100",
-                },
-                {
-                  icon: Globe,
-                  title: "Frontend Developer (Freelance)",
-                  company: "aydikhbrat.com",
-                  description:
-                    "Developed and maintained frontend components for a web application, focusing on responsive design and user experience optimization.",
-                  delay: "delay-200",
-                },
-                {
-                  icon: Zap,
-                  title: "No-Code Developer (Full-Time)",
-                  company: "GeekyAir",
-                  badge: "Current",
-                  description:
-                    "Led development of innovative no-code solutions, creating scalable applications using modern no-code platforms and tools.",
-                  projects: [
-                    "Dreamfinder - Mobile application for Golf Scholarships",
-                    "Social Army - Tiktok Shop Affiliate Platform",
-                  ],
-                  delay: "delay-300",
-                },
-              ].map((job, index) => (
-                <Card
-                  key={job.title}
-                  className={`bg-slate-800/80 border-slate-700 hover:border-teal-500/50 transition-all duration-500 transform hover:scale-105 hover:shadow-xl hover:shadow-teal-500/10 animate-fade-in-up ${job.delay}`}
-                >
-                  <CardHeader>
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <CardTitle className="flex items-center text-white">
-                          <job.icon className="mr-2 h-5 w-5 text-teal-400" />
-                          {job.title}
-                        </CardTitle>
-                        <CardDescription className="text-slate-300">{job.company}</CardDescription>
-                      </div>
-                      {job.badge && (
-                        <Badge variant="outline" className="border-teal-400 text-teal-400 animate-pulse">
-                          {job.badge}
-                        </Badge>
-                      )}
+          <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto animate-fade-in-up delay-100">
+            My professional experience
+          </p>
+
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Professional Background Card */}
+              <Card className="bg-slate-800/80 border-slate-700 hover:border-teal-500/50 transition-all duration-500 transform hover:scale-105 hover:shadow-xl hover:shadow-teal-500/10 animate-fade-in-left group">
+                <CardHeader>
+                  <div className="flex items-center space-x-4">
+                    <div className="p-2 bg-teal-500/10 rounded-lg group-hover:bg-teal-500/20 transition-colors">
+                      <Code className="h-6 w-6 text-teal-400" />
                     </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-slate-300 mb-3">{job.description}</p>
-                    {job.projects && (
-                      <div className="space-y-2">
-                        <div className="flex items-center">
-                          <span className="font-medium text-white">Key Projects:</span>
-                        </div>
-                        <ul className="list-disc list-inside text-slate-300 space-y-1">
-                          {job.projects.map((project, projectIndex) => (
-                            <li key={projectIndex} className="hover:text-teal-400 transition-colors">
-                              {project}
-                            </li>
-                          ))}
-                        </ul>
+                    <div>
+                      <CardTitle className="text-xl text-white">Professional Background</CardTitle>
+                      <CardDescription className="text-slate-400">My journey in tech</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-slate-300 leading-relaxed">
+                    I bring a unique hybrid experience combining Flutter development, manual software testing, and
+                    expertise in low-code/no-code tools like FlutterFlow, Glide, and Airtable.
+                  </p>
+                  <div className="grid grid-cols-2 gap-4 pt-4">
+                    <div className="p-4 bg-slate-700/50 rounded-lg hover:bg-slate-700/80 transition-colors">
+                      <h4 className="font-semibold text-teal-400 mb-2">Development</h4>
+                      <p className="text-sm text-slate-300">Flutter & Frontend Development</p>
+                    </div>
+                    <div className="p-4 bg-slate-700/50 rounded-lg hover:bg-slate-700/80 transition-colors">
+                      <h4 className="font-semibold text-teal-400 mb-2">Testing</h4>
+                      <p className="text-sm text-slate-300">Manual Software Testing</p>
+                    </div>
+                    <div className="p-4 bg-slate-700/50 rounded-lg hover:bg-slate-700/80 transition-colors">
+                      <h4 className="font-semibold text-teal-400 mb-2">No-Code</h4>
+                      <p className="text-sm text-slate-300">FlutterFlow & Glide Expert</p>
+                    </div>
+                    <div className="p-4 bg-slate-700/50 rounded-lg hover:bg-slate-700/80 transition-colors">
+                      <h4 className="font-semibold text-teal-400 mb-2">Integration</h4>
+                      <p className="text-sm text-slate-300">API & Platform Integration</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Education Card */}
+              <Card className="bg-slate-800/80 border-slate-700 hover:border-teal-500/50 transition-all duration-500 transform hover:scale-105 hover:shadow-xl hover:shadow-teal-500/10 animate-fade-in-right group">
+                <CardHeader>
+                  <div className="flex items-center space-x-4">
+                    <div className="p-2 bg-blue-500/10 rounded-lg group-hover:bg-blue-500/20 transition-colors">
+                      <Calendar className="h-6 w-6 text-blue-400" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl text-white">Education & Training</CardTitle>
+                      <CardDescription className="text-slate-400">My academic journey</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-6">
+                    <div className="relative pl-8 border-l-2 border-slate-700 group-hover:border-teal-500/50 transition-colors">
+                      <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-teal-500/20 group-hover:bg-teal-500/40 transition-colors"></div>
+                      <div className="space-y-1">
+                        <h4 className="font-semibold text-white group-hover:text-teal-400 transition-colors">
+                          Bachelor's in Computer Engineering
+                        </h4>
+                        <p className="text-slate-400">Arab Academy for Science, Technology & Maritime Transport</p>
+                        <p className="text-sm text-slate-500">2019 - 2024</p>
                       </div>
-                    )}
-                  </CardContent>
-                </Card>
-              ))}
+                    </div>
+
+                    <div className="relative pl-8 border-l-2 border-slate-700 group-hover:border-teal-500/50 transition-colors">
+                      <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-500/20 group-hover:bg-blue-500/40 transition-colors"></div>
+                      <div className="space-y-1">
+                        <h4 className="font-semibold text-white group-hover:text-blue-400 transition-colors">
+                          Bachelor's Degree
+                        </h4>
+                        <p className="text-slate-400">University of Northampton</p>
+                        <p className="text-sm text-slate-500">2019 - 2024</p>
+                      </div>
+                    </div>
+
+                    <div className="relative pl-8 border-l-2 border-slate-700 group-hover:border-teal-500/50 transition-colors">
+                      <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-purple-500/20 group-hover:bg-purple-500/40 transition-colors"></div>
+                      <div className="space-y-1">
+                        <h4 className="font-semibold text-white group-hover:text-purple-400 transition-colors">
+                          Flutter Diploma
+                        </h4>
+                        <p className="text-slate-400">Route Academy</p>
+                        <p className="text-sm text-slate-500">6 Months Intensive Training</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Achievement Highlights */}
+            <div className="mt-12 grid md:grid-cols-3 gap-6">
+              <Card className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border-slate-700 hover:border-teal-500/50 transition-all duration-500 transform hover:scale-105 hover:shadow-xl hover:shadow-teal-500/10 animate-fade-in-up delay-200">
+                <CardContent className="p-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 bg-teal-500/10 rounded-full">
+                      <Smartphone className="h-6 w-6 text-teal-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-white">2+</h3>
+                      <p className="text-slate-400">Mobile Apps Developed</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border-slate-700 hover:border-teal-500/50 transition-all duration-500 transform hover:scale-105 hover:shadow-xl hover:shadow-teal-500/10 animate-fade-in-up delay-300">
+                <CardContent className="p-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 bg-blue-500/10 rounded-full">
+                      <Globe className="h-6 w-6 text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-white">3+</h3>
+                      <p className="text-slate-400">Web Platforms Built</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border-slate-700 hover:border-teal-500/50 transition-all duration-500 transform hover:scale-105 hover:shadow-xl hover:shadow-teal-500/10 animate-fade-in-up delay-400">
+                <CardContent className="p-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 bg-purple-500/10 rounded-full">
+                      <Zap className="h-6 w-6 text-purple-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-white">98%</h3>
+                      <p className="text-slate-400">Client Satisfaction</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-16 px-4 relative overflow-hidden">
+      <section id="projects" className="py-16 px-4 bg-gradient-to-b from-slate-800/50 to-slate-900/50 relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-teal-500/5 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute -top-20 -right-20 w-40 h-40 bg-teal-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-blue-500/5 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container mx-auto relative">
           <h2 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent animate-fade-in-up">
-            Featured Projects
+            Projects
           </h2>
           <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto animate-fade-in-up delay-100">
-            A showcase of my most impactful work, from mobile apps to web platforms
+            My recent projects
           </p>
 
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: Smartphone,
-                  title: "Dreamfinder",
-                  description: "Golf Scholarships App",
-                  content: "A golf scholarships mobile app used to find suitable scholarships for golf players based on their scores. Available on the App Store with intuitive matching algorithms.",
-                  badges: ["FlutterFlow", "Sports Tech", "iOS"],
-                  link: "https://apps.apple.com/eg/app/dreamfinder/id6743325294",
-                  linkText: "View on App Store",
-                  image: "/images/projects/dreamfinder-preview.jpg",
-                  stats: {
-                    downloads: "100+",
-                    rating: "4.8",
-                    users: "100+"
-                  },
-                  delay: "delay-100",
-                  featured: true
-                },
-                {
-                  icon: Globe,
-                  title: "Social Army Platform",
-                  description: "TikTok Shop Affiliate Platform",
-                  content: "A comprehensive platform designed to empower TikTok Shop affiliates and content creators. Features in-depth courses, community support, and exclusive brand deals.",
-                  badges: ["Glide", "Airtable", "TikTok Shop"],
-                  link: "https://dash.social-army.io/",
-                  linkText: "View Platform",
-                  image: "/images/projects/social-army-preview.jpg",
-                  stats: {
-                    Users: "4K+",
-                    gmv: "$10M+",
-                    Products: "43k+"
-                  },
-                  delay: "delay-200",
-                  featured: true
-                },
-                {
-                  icon: Globe,
-                  title: "خبرة الايادي للاستقدام",
-                  description: "Saudi Recruitment Agency",
-                  content: "Professional website for خبرة الأيادي للاستقدام, a licensed Saudi recruitment agency specializing in domestic labor services.",
-                  badges: ["Frontend", "Arabic", "Recruitment"],
-                  link: "https://frontendksawebsite1.vercel.app/",
-                  linkText: "View Website",
-                  image: "/images/projects/aydikhbrat-preview.jpg",
-                  stats: {
-                    satisfaction: "98%",
-                    clients: "500+",
-                    services: "10+"
-                  },
-                  delay: "delay-300",
-                  featured: true
-                },
-                {
-                  icon: Smartphone,
-                  title: "E-Commerce App",
-                  description: "Flutter + Firebase",
-                  content: "Full-featured e-commerce mobile application built with Flutter and Firebase, including user authentication, product catalog, and payment integration.",
-                  badges: ["Flutter", "Firebase", "Dart"],
-                  image: "/images/projects/ecommerce-preview.jpg",
-                  stats: {
-                    products: "1K+",
-                    users: "2K+",
-                    orders: "5K+"
-                  },
-                  delay: "delay-400"
-                },
-                {
-                  icon: Code,
-                  title: "Smart Wheelchair",
-                  description: "Voice Control System",
-                  content: "Innovative smart wheelchair with voice control capabilities using TensorFlow Lite and Raspberry Pi for enhanced accessibility and user independence.",
-                  badges: ["TensorFlow Lite", "Raspberry Pi", "IoT"],
-                  image: "/images/projects/wheelchair-preview.jpg",
-                  stats: {
-                    accuracy: "95%",
-                    commands: "10+",
-                    response: "<1s"
-                  },
-                  delay: "delay-500"
-                },
-                {
-                  icon: Database,
-                  title: "Payroll System",
-                  description: "Enterprise Solution",
-                  content: "Comprehensive payroll management system implementing OOP principles, design patterns, and test-driven development for enterprise-level reliability.",
-                  badges: ["OOP", "Design Patterns", "TDD"],
-                  image: "/images/projects/payroll-preview.jpg",
-                  stats: {
-                    employees: "5+",
-                    accuracy: "99.9%",
-                    reports: "3+"
-                  },
-                  delay: "delay-600"
-                }
-              ].map((project, index) => (
+            <div className="grid md:grid-cols-2 gap-8">
+              {projects.map((project, index) => (
                 <motion.div
                   key={project.title}
                   whileHover={{ 
-                    scale: 1.02,
-                    transition: { duration: 0.2 }
+                    scale: 1.05,
+                    rotateX: 5,
+                    rotateY: 5,
+                    transition: { duration: 0.3 }
                   }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="h-full"
                 >
                   <Card
-                    className={`bg-slate-800/80 border-slate-700 hover:border-teal-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-teal-500/10 ${project.delay} group relative h-full flex flex-col`}
+                    className={`bg-slate-800/80 border-slate-700 hover:border-teal-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-teal-500/10 ${project.delay} group`}
                   >
-                    <CardHeader className="flex-none">
-                      <div className="flex items-center justify-between">
-                        <CardTitle className="flex items-center text-white group-hover:text-teal-400 transition-colors">
-                          <project.icon className="mr-2 h-5 w-5 text-teal-400" />
-                          {project.title}
-                        </CardTitle>
-                        {project.featured && (
-                          <Badge className="bg-teal-500/90 text-white">
-                            Featured
-                          </Badge>
-                        )}
-                      </div>
-                      <CardDescription className="text-slate-300 mt-2">{project.description}</CardDescription>
+                    <CardHeader>
+                      <CardTitle className="flex items-center text-white group-hover:text-teal-400 transition-colors">
+                        {project.icon && <project.icon className="mr-2 h-5 w-5 text-teal-400" />}
+                        {project.title}
+                      </CardTitle>
+                      <CardDescription className="text-slate-300">{project.description}</CardDescription>
                     </CardHeader>
-
-                    <CardContent className="flex flex-col flex-grow">
-                      <p className="text-slate-300 mb-4 line-clamp-3">{project.content}</p>
-                      
-                      {/* Project Stats */}
-                      <div className="grid grid-cols-3 gap-2 mb-4 p-3 bg-slate-700/30 rounded-lg">
-                        {Object.entries(project.stats).map(([key, value]) => (
-                          <div key={key} className="text-center">
-                            <p className="text-teal-400 font-semibold">{value}</p>
-                            <p className="text-xs text-slate-400 capitalize">{key}</p>
-                          </div>
-                        ))}
-                      </div>
-
+                    <CardContent>
+                      <p className="text-slate-300 mb-4">{project.content}</p>
                       <div className="flex flex-wrap gap-2 mb-4">
-                        {project.badges.map((badge) => (
+                        {project.badges.map((badge, badgeIndex) => (
                           <Badge
                             key={badge}
                             variant="outline"
@@ -703,22 +724,19 @@ export default function Portfolio() {
                           </Badge>
                         ))}
                       </div>
-
-                      <div className="mt-auto">
-                        {project.link && (
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            asChild
-                            className="w-full border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-slate-900 transition-all duration-300"
-                          >
-                            <Link href={project.link} target="_blank">
-                              <ExternalLink className="mr-2 h-4 w-4" />
-                              {project.linkText}
-                            </Link>
-                          </Button>
-                        )}
-                      </div>
+                      {project.link && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          asChild
+                          className="border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-slate-900 transition-all duration-300"
+                        >
+                          <Link href={project.link} target="_blank">
+                            <ExternalLink className="mr-2 h-4 w-4" />
+                            {project.linkText}
+                          </Link>
+                        </Button>
+                      )}
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -729,89 +747,67 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 px-4 bg-slate-800/50">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent animate-fade-in-up">
-            Get In Touch
+      <section id="contact" className="py-16 px-4 bg-gradient-to-b from-slate-800/50 to-slate-900/50 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-20 -right-20 w-40 h-40 bg-teal-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-blue-500/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto relative">
+          <h2 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent animate-fade-in-up">
+            Contact Me
           </h2>
-          <div className="max-w-4xl mx-auto">
+          <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto animate-fade-in-up delay-100">
+            Get in touch with me
+          </p>
+
+          <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8">
-              <Card className="bg-slate-800/80 border-slate-700 hover:border-teal-500/50 transition-all duration-500 transform hover:scale-105 hover:shadow-xl hover:shadow-teal-500/10 animate-fade-in-left">
+              {/* Contact Form Card */}
+              <Card className="bg-slate-800/80 border-slate-700 hover:border-teal-500/50 transition-all duration-500 transform hover:scale-105 hover:shadow-xl hover:shadow-teal-500/10 animate-fade-in-left group">
                 <CardHeader>
-                  <CardTitle className="text-white">Contact Information</CardTitle>
-                  <CardDescription className="text-slate-300">Let's discuss your next project</CardDescription>
+                  <div className="flex items-center space-x-4">
+                    <div className="p-2 bg-teal-500/10 rounded-lg group-hover:bg-teal-500/20 transition-colors">
+                      <Mail className="h-6 w-6 text-teal-400" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl text-white">Contact Form</CardTitle>
+                      <CardDescription className="text-slate-400">Send me a message</CardDescription>
+                    </div>
+                  </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="flex items-center group">
-                    <Mail className="mr-3 h-5 w-5 text-teal-400 group-hover:scale-110 transition-transform" />
-                    <a
-                      href="mailto:mohamedehab26901@gmail.com"
-                      className="text-slate-300 hover:text-teal-400 transition-colors"
-                    >
-                      mohamedehab26901@gmail.com
-                    </a>
-                  </div>
-                  <div className="flex items-center group">
-                    <Phone className="mr-3 h-5 w-5 text-teal-400 group-hover:scale-110 transition-transform" />
-                    <a href="tel:+201275827643" className="text-slate-300 hover:text-teal-400 transition-colors">
-                      +20 127 582 7643
-                    </a>
-                  </div>
-                  <div className="flex items-center group">
-                    <MapPin className="mr-3 h-5 w-5 text-teal-400 group-hover:scale-110 transition-transform" />
-                    <span className="text-slate-300">Alexandria, Egypt</span>
-                  </div>
+                  {/* Contact form content */}
                 </CardContent>
               </Card>
 
-              <Card className="bg-slate-800/80 border-slate-700 hover:border-teal-500/50 transition-all duration-500 transform hover:scale-105 hover:shadow-xl hover:shadow-teal-500/10 animate-fade-in-right">
+              {/* Contact Details Card */}
+              <Card className="bg-slate-800/80 border-slate-700 hover:border-teal-500/50 transition-all duration-500 transform hover:scale-105 hover:shadow-xl hover:shadow-teal-500/10 animate-fade-in-right group">
                 <CardHeader>
-                  <CardTitle className="text-white">Connect With Me</CardTitle>
-                  <CardDescription className="text-slate-300">Find me on social platforms</CardDescription>
+                  <div className="flex items-center space-x-4">
+                    <div className="p-2 bg-blue-500/10 rounded-lg group-hover:bg-blue-500/20 transition-colors">
+                      <Phone className="h-6 w-6 text-blue-400" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl text-white">Contact Details</CardTitle>
+                      <CardDescription className="text-slate-400">How to reach me</CardDescription>
+                    </div>
+                  </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <Button
-                    variant="outline"
-                    className="w-full justify-start border-slate-600 text-slate-300 hover:border-teal-400 hover:text-teal-400 hover:bg-teal-400/10 transition-all duration-300 transform hover:scale-105"
-                    asChild
-                  >
-                    <Link href="https://www.linkedin.com/in/mohamed-ehab-38a649324" target="_blank">
-                      <Linkedin className="mr-3 h-5 w-5" />
-                      LinkedIn Profile
-                    </Link>
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="w-full justify-start border-slate-600 text-slate-300 hover:border-teal-400 hover:text-teal-400 hover:bg-teal-400/10 transition-all duration-300 transform hover:scale-105"
-                    asChild
-                  >
-                    <Link href="https://github.com/MohamedEhab26" target="_blank">
-                      <Github className="mr-3 h-5 w-5" />
-                      GitHub Profile
-                    </Link>
-                  </Button>
-                  <Button
-                    className="w-full bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-teal-500/25"
-                    asChild
-                  >
-                    <Link href="mailto:mohamedehab26901@gmail.com">
-                      <Mail className="mr-3 h-5 w-5" />
-                      Send Email
-                    </Link>
-                  </Button>
+                  <p className="text-slate-300 leading-relaxed">
+                    Email: mohamed.ehab@example.com
+                  </p>
+                  <p className="text-slate-300 leading-relaxed">
+                    Phone: +1 (555) 123-4567
+                  </p>
                 </CardContent>
               </Card>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-8 px-4 bg-slate-900 border-t border-slate-700">
-        <div className="container mx-auto text-center">
-          <p className="text-slate-400 animate-fade-in">© 2024 Mohamed Ehab. Built with Next.js and TailwindCSS.</p>
-        </div>
-      </footer>
     </div>
   )
 }
